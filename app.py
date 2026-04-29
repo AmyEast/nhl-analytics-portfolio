@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import pickle
+import os
 
 # Page config
 st.set_page_config(
@@ -16,15 +17,20 @@ st.set_page_config(
 # Load data
 @st.cache_data
 def load_data():
-    conn = sqlite3.connect('database/nhl.db')
+    # Works both locally and on Streamlit Cloud
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(base_dir, 'database', 'nhl.db')
+    model_path = os.path.join(base_dir, 'models', 'model_balanced.pkl')
+    
+    conn = sqlite3.connect(db_path)
     df_standings = pd.read_sql_query("SELECT * FROM standings", conn)
     df_schedule = pd.read_sql_query("SELECT * FROM schedule_with_rest", conn)
     df_players = pd.read_sql_query("SELECT * FROM players", conn)
     conn.close()
-
-    with open('models/model_balanced.pkl', 'rb') as f:
+    
+    with open(model_path, 'rb') as f:
         model = pickle.load(f)
-
+    
     return df_standings, df_schedule, df_players, model
 
 df_standings, df_schedule, df_players, model = load_data()
