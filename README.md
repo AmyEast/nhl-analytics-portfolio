@@ -3,6 +3,10 @@
 Exploratory and predictive analysis of NHL data examining team performance, 
 player production, and the impact of schedule fatigue on game outcomes.
 
+## Live Demo
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nhl-analytics-amyeast.streamlit.app)
+
 ## The Question
 
 Does schedule fatigue — back-to-back games, rest differentials, and 
@@ -48,14 +52,12 @@ the reality of the 2025-26 season and team dynamics within it.
 | `03_player_analysis.ipynb` | Points leaders, scorer vs playmaker analysis, Pittsburgh Penguins deep dive |
 | `04_schedule_fatigue.ipynb` | Schedule fatigue analysis — rest days, timezone travel, team resilience, logistic regression model |
 
-## In Progress / Upcoming Enhancements
-
-- **H5 Model Enhancement** — adding team quality variables (points percentage) 
-  alongside rest and travel for a more robust upset prediction model
-- **Back-to-Back Type Analysis** — categorizing B2B games by travel pattern 
-  (home→away, away→home, etc.) to isolate travel fatigue from rest fatigue
-- **Rolling Win Rate** — replacing season-wide win percentage with rolling 
-  win rate at time of game for more accurate team quality measurement
+## Future Enhancements
+- **Team age analysis** — correlate roster age with fatigue resilience score
+- **Betting odds integration** — use market odds as upset baseline for H5 model
+- **Penalty differential analysis** — do some teams draw more penalties than others?
+- **Season-over-season comparison** — validate findings across multiple seasons
+- **PWHL companion project** — apply same analytical framework to women's hockey
 
 ## Tech Stack
 
@@ -78,7 +80,7 @@ Then open any notebook in Jupyter or VS Code/Cursor and run all cells.
 
 ## Project Status
 
-🟡 In progress — Phase 5 polish and Streamlit dashboard in development
+✅ Complete — live dashboard available above
 
 ## Author
 
